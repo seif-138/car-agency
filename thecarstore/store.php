@@ -1,8 +1,8 @@
 <?php
 session_start();  
 include 'conn.php';
-if(isset($_SESSION['lname'])) $username1=$_SESSION['lname'];
-if(isset($_SESSION['sname'])) $username2=$_SESSION['sname'];
+if(isset($_SESSION['lname'])) $username=$_SESSION['lname'];
+if(isset($_SESSION['sname'])) $username=$_SESSION['sname'];
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +16,8 @@ if(isset($_SESSION['sname'])) $username2=$_SESSION['sname'];
 <body>
   <div class="head">
     <h1><?php
-     if(isset($username1)) echo "hello ".$username1;
-     else if(isset($username2)) echo "hello ".$username2;
+     if(isset($username)) echo "hello ".$username;
+     
     
      ?></h1>
   </div>
