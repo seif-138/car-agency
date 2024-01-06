@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='body.css'>
+    <title>CAR AGENCY</title>
+</head>
+
+<body>
+    <div class="head">
+        <h1>CAR AGENCY</h1>
+    </div>
+    <div class="image"></div>
+    <!-- <img src="car.jpeg" class="image"> -->
+    
+    <div class="card">
+        <img src="placeholder.jpg" alt="Card image">
+        <div class="card-body">
+          <h4 class="card-title">Card Title</h4>
+          <p class="card-text">Card text will be filled from database.</p>
+          <a href="#" class="btn btn-primary">Button</a>
+        </div>
+      </div>
+
+      <?php
+include 'conn.php';
+
+
+    $pdo=new PDO($attr,$user,$pass);
+    $query='SELECT * from cars';
+    $result=$pdo->query($query);
+   
+    
+  while($row=$result->fetch()){
+    // echo $row['name']." ".$row['id']." <a href='delete.php' id=$row[id]'>delete</a>"."<br>";
+     $imagePath = "car/" . $row['image'];
+    echo"
+         
+    <div class=card>
+          <img src='$imagePath' alt='$row[name]'
+        <div class=card-body>
+          <h4 class=card-title>$row[company].' '.$row[name]</h4>
+         
+          <a href=# class=btn btn-primary>Button</a>
+        </div>
+      </div>
+
+
+
+        ";  }
+    ?>
+    
+</body>
+
+</html>
+
+
+
+
+.card {
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+  }
+  
+  .card-body {
+    padding: 10px;
+  }
+  
+  .card-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .card-text {
+    line-height: 1.5;
+  }
+  body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Optional: Adjust spacing between cards */
+  }
+
+
